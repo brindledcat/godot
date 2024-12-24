@@ -32,7 +32,6 @@
 #include "animation.compat.inc"
 
 #include "core/io/marshalls.h"
-#include "core/math/geometry_3d.h"
 
 bool Animation::_set(const StringName &p_name, const Variant &p_value) {
 	String prop_name = p_name;
@@ -1048,7 +1047,7 @@ int Animation::find_track(const NodePath &p_path, const TrackType p_type) const 
 		}
 	};
 	return -1;
-};
+}
 
 Animation::TrackType Animation::get_cache_type(TrackType p_type) {
 	if (p_type == Animation::TYPE_BEZIER) {

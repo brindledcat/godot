@@ -33,7 +33,6 @@
 #include "config.h"
 
 #include "../rasterizer_gles3.h"
-#include "texture_storage.h"
 
 #ifdef WEB_ENABLED
 #include <emscripten/html5_webgl.h>
@@ -231,6 +230,13 @@ Config::Config() {
 	} else if (rendering_device_name == "PowerVR Rogue GE8320") {
 		disable_transform_feedback_shader_cache = true;
 	}
+
+	if (OS::get_singleton()->get_current_rendering_driver_name() == "opengl3_angle") {
+		polyfill_half2float = false;
+	}
+#ifdef WEB_ENABLED
+	polyfill_half2float = false;
+#endif
 }
 
 Config::~Config() {

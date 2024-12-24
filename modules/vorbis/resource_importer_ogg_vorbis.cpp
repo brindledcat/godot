@@ -32,7 +32,6 @@
 
 #include "core/io/file_access.h"
 #include "core/io/resource_saver.h"
-#include "scene/resources/texture.h"
 
 #ifdef TOOLS_ENABLED
 #include "editor/import/audio_stream_import_settings.h"
@@ -95,7 +94,7 @@ void ResourceImporterOggVorbis::show_advanced_options(const String &p_path) {
 }
 #endif
 
-Error ResourceImporterOggVorbis::import(const String &p_source_file, const String &p_save_path, const HashMap<StringName, Variant> &p_options, List<String> *r_platform_variants, List<String> *r_gen_files, Variant *r_metadata) {
+Error ResourceImporterOggVorbis::import(ResourceUID::ID p_source_id, const String &p_source_file, const String &p_save_path, const HashMap<StringName, Variant> &p_options, List<String> *r_platform_variants, List<String> *r_gen_files, Variant *r_metadata) {
 	bool loop = p_options["loop"];
 	double loop_offset = p_options["loop_offset"];
 	double bpm = p_options["bpm"];

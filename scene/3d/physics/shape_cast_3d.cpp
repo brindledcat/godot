@@ -30,7 +30,6 @@
 
 #include "shape_cast_3d.h"
 
-#include "scene/3d/mesh_instance_3d.h"
 #include "scene/3d/physics/collision_object_3d.h"
 #include "scene/resources/3d/concave_polygon_shape_3d.h"
 
@@ -546,7 +545,7 @@ void ShapeCast3D::_create_debug_shape() {
 	}
 
 	if (debug_mesh.is_null()) {
-		debug_mesh = Ref<ArrayMesh>(memnew(ArrayMesh));
+		debug_mesh.instantiate();
 	}
 }
 
